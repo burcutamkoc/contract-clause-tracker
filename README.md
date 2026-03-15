@@ -16,8 +16,8 @@ A web application for managing and labeling legal contract clauses. Users can up
 
 | Layer | Technology |
 |-------|------------|
-| **Backend** | Python, FastAPI 0.135, SQLAlchemy 2.0, Uvicorn |
-| **Frontend** | Angular 21, PrimeNG 21, PrimeFlex, SCSS |
+| **Backend** | Python, FastAPI, SQLAlchemy 2.0, Uvicorn |
+| **Frontend** | Angular 21, PrimeNG 21 |
 | **Database** | PostgreSQL 15 |
 | **Infrastructure** | Docker, Docker Compose |
 | **API Documentation** | OpenAPI / Swagger (auto-generated) |
