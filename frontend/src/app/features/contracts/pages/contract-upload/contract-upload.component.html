@@ -1,0 +1,41 @@
+<div class="upload-container">
+
+  <p-card class="upload-card">
+
+    <ng-template pTemplate="title">
+      Upload Contract
+    </ng-template>
+
+    <ng-template pTemplate="content">
+
+      <div class="upload-form">
+
+        <div style="margin-bottom: 1rem;">
+          <input
+            type="file"
+            (change)="onFileSelected($event)"
+            accept=".txt,.md"
+          />
+        </div>
+
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <div>
+          <button
+            pButton
+            label="Upload"
+            icon="pi pi-upload"
+            (click)="upload()"
+            [disabled]="!selectedFile">
+          </button>
+        </div>
+
+      </div>
+
+    </ng-template>
+
+  </p-card>
+
+</div>

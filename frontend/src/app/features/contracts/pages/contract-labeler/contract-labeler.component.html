@@ -1,0 +1,33 @@
+<div class="p-4">
+
+  <div class="flex justify-content-between align-items-center mb-4">
+
+    <h2>Label Sentences</h2>
+
+    <button
+      pButton
+      icon="pi pi-chevron-left"
+      label="Back"
+      class="p-button-text"
+      routerLink="/">
+    </button>
+  </div>
+
+  <ng-container *ngIf="sentences$ | async as sentences">
+    <ng-container *ngIf="clauseTypes$ | async as clauseTypes">
+
+      <ng-container *ngFor="let sentence of sentences">
+
+        <app-sentence-labeler
+          *ngIf="!sentence.clause_type_id"
+          [sentence]="sentence"
+          [clauseTypes]="clauseTypes"
+          (labelSelected)="onLabel($event)">
+        </app-sentence-labeler>
+
+      </ng-container>
+
+    </ng-container>
+  </ng-container>
+
+</div>

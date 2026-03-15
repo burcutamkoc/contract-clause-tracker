@@ -1,0 +1,51 @@
+/* column widths */
+
+.index-col {
+  width: 60px;
+}
+
+.contract-col {
+  width: 300px;
+}
+
+.sentences-col {
+  width: 180px;
+}
+
+.progress-col {
+  width: 220px;
+}
+
+.created-col {
+  width: 180px;
+}
+
+.actions-col {
+  width: 200px;
+}
+
+/* actions layout */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* completed label */
+
+.completed {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* header icons */
+
+.header-icon {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-left: 4px;
+}

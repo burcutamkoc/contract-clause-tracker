@@ -1,0 +1,64 @@
+<p-card class="contracts-card">
+
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">
+      Contract Clause Tracker Dashboard
+    </h1>
+
+    <p class="dashboard-subtitle">
+      Manage and label your contract clauses efficiently
+    </p>
+  </div>
+
+  <div class="table-toolbar">
+
+    <p-toolbar>
+
+      <ng-template pTemplate="start">
+
+        <span class="p-input-icon-left search-input">
+          <i class="pi pi-search"></i>
+
+          <input
+            pInputText
+            type="text"
+            placeholder="Search contract"
+            (input)="onSearch($any($event.target).value)">
+        </span>
+
+      </ng-template>
+
+      <ng-template pTemplate="center">
+
+        <p-select
+          [options]="statusOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="All"
+          (onChange)="onStatusChange($event.value)">
+        </p-select>
+
+      </ng-template>
+
+      <ng-template pTemplate="end">
+
+        <button
+          pButton
+          icon="pi pi-upload"
+          label="Upload Contract"
+          routerLink="/upload">
+        </button>
+
+      </ng-template>
+
+    </p-toolbar>
+
+  </div>
+
+  <app-contract-table
+    *ngIf="contracts$ | async as contracts"
+    [contracts]="contracts"
+    (delete)="deleteContract($event)">
+  </app-contract-table>
+
+</p-card>

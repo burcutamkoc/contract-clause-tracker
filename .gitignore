@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+.venv/
+venv/
+
+# Environment variables
+*.env
+.local.env
+
+# VSCode
+.vscode/
+
+# Node
+node_modules/
+dist/
+.angular/
+
+# Logs
+*.log
+logfile
+
+# Presentation (personal notes)
+PRESENTATION.md
+
+# Mac
+.DS_Store

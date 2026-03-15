@@ -1,0 +1,118 @@
+<p-table
+  [value]="contracts"
+  [scrollable]="true"
+  styleClass="p-datatable-sm contract-table">
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="6" class="empty-state-cell">
+
+        <div class="empty-state">
+
+          <i class="pi pi-folder-open empty-icon"></i>
+
+          <h3>No contracts uploaded yet</h3>
+
+          <p>
+            Upload your first contract to start labeling clauses.
+          </p>
+
+          <button
+            pButton
+            label="Upload Contract"
+            icon="pi pi-upload"
+            class="p-button-primary"
+            routerLink="/upload">
+        </button>
+
+      </div>
+
+    </td>
+  </tr>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="index-col">#</th>
+
+      <th class="contract-col">
+        Contract
+      </th>
+
+      <th class="sentences-col">
+        Sentences Labeled
+        <i class="pi pi-tag header-icon"></i>
+      </th>
+
+      <th class="progress-col">
+        Progress
+        <i class="pi pi-chart-line header-icon"></i>
+      </th>
+
+      <th class="created-col">
+        Created
+        <i class="pi pi-clock header-icon"></i>
+      </th>
+
+      <th class="actions-col">
+        Actions
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-contract let-rowIndex="rowIndex">
+    <tr>
+
+      <td class="index-col">
+        {{ rowIndex + 1 }}
+      </td>
+
+      <td class="contract-col">
+        {{ contract.name }}
+      </td>
+
+      <td class="sentences-col">
+        {{ contract.labeled_count }}/{{ contract.sentence_count }}
+      </td>
+
+      <td class="progress-col">
+        <p-progressBar
+          [value]="contract.sentence_count
+            ? Math.round((contract.labeled_count / contract.sentence_count) * 100)
+            : 0">
+        </p-progressBar>
+      </td>
+
+      <td class="created-col">
+        {{ contract.created_at | date:'dd.MM.yyyy HH:mm' }}
+      </td>
+
+      <td class="actions actions-col">
+
+        <button
+          *ngIf="contract.labeled_count < contract.sentence_count"
+          pButton
+          icon="pi pi-play"
+          label="Continue"
+          class="p-button-primary p-button-sm"
+          [routerLink]="['/contracts', contract.id, 'label']">
+        </button>
+
+        <span
+          *ngIf="contract.labeled_count === contract.sentence_count"
+          class="completed"
+        >
+          ✔ Completed
+        </span>
+
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-danger p-button-text p-button-sm"
+          (click)="deleteContract(contract.id)">
+        </button>
+
+      </td>
+
+    </tr>
+  </ng-template>
+
+</p-table>

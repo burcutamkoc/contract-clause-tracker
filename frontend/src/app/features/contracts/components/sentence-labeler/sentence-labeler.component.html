@@ -1,0 +1,34 @@
+<div class="sentence-card">
+  <div class="sentence-header">
+    <h4 class="sentence-title">Sentence to Label</h4>
+    <span class="current-label" *ngIf="sentence.clauseType">Current: {{sentence.clauseType.name}}</span>
+  </div>
+
+  <blockquote class="sentence-text">
+    "{{sentence.text}}"
+  </blockquote>
+
+  <div class="labeling-section">
+    <div class="form-group">
+      <label for="clause-select">Select Clause Type:</label>
+      <p-select
+        id="clause-select"
+        [options]="clauseTypes"
+        optionLabel="name"
+        optionValue="id"
+        [(ngModel)]="selectedClause"
+        placeholder="Choose a clause type"
+        class="clause-dropdown">
+      </p-select>
+    </div>
+
+    <button
+      pButton
+      label="Apply Label"
+      icon="pi pi-tag"
+      (click)="labelSentence()"
+      class="label-button"
+      [disabled]="!selectedClause">
+    </button>
+  </div>
+</div>
