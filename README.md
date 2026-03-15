@@ -1,4 +1,3 @@
-=======
 # Contract Clause Tracker
 
 A web application for managing and labeling legal contract clauses. Users can upload contract files, automatically parse them into sentences, and label each sentence with predefined clause types.
